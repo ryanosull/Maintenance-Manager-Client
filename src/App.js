@@ -1,7 +1,7 @@
 import React from "react";
 import './App.css';
-import DarkMode from "./DarkMode"
-// import Header from "./Header";
+
+import Header from "./Header";
 
 
 function App() {
@@ -9,8 +9,10 @@ function App() {
 
   return (
     <div>
-      <div>testing</div>
-      <DarkMode />
+      
+      <Header />
+      
+      
     </div>
   );
 }

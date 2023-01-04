@@ -1,17 +1,18 @@
 import React from "react";
+import "./Header.css";
+import DarkMode from "./DarkMode"
 
 
 
 function Header () {
 
 
-
-
-
-
     return (
-        <div  >
-            Maintenance Manager v0.01
+        <div id="header" >
+            Maintenance Manager v0.1
+            <div id="darkModeButtonDiv">
+                <DarkMode />
+            </div>
         </div>
     )
 

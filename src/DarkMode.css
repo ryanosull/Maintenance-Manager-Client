@@ -1,12 +1,16 @@
 #darkMode {
-    background: transparent url("https://images.emojiterra.com/twitter/v13.1/512px/1f318.png") no-repeat center;
-    background-size: 30px 30px;
-    width: 45px;
-    height: 45px;
-    filter: grayscale(50%);
+    background: transparent url("https://nickjohn.gallerycdn.vsassets.io/extensions/nickjohn/autothemeswitcherforwin10darkmode/0.8/1625713621041/Microsoft.VisualStudio.Services.Icons.Default") no-repeat center;
+    background-size: 60px 60px;
+    width: 90px;
+    height: 90px;
+    filter: grayscale(10%);
     border: none;
     border-radius: 50%;
     transition: 0.15s ease-in-out, filter 0.15s ease-in-out;
+    margin-left: 5%;
+    margin-top: -18%;
+
+    
 }
 
 #darkMode:hover,
@@ -18,5 +22,5 @@
 
 #darkMode.clicked {
     filter: none !important;
-    background-color: black;
+    background-color: rgb(228, 225, 197);
 }
