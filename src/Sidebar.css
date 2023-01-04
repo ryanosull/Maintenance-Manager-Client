@@ -4,9 +4,10 @@
     justify-content: space-evenly;
     gap: 75px;
     margin-top: 10%;
+    margin-right: 80%;
 }
 
 .sidebarText {
     font-size: larger;
-    
+
 }
