@@ -20,7 +20,7 @@ function Sidebar () {
                 Open Requests
             </div>
             <div className="sidebarText">
-                Closed Requests
+                All Requests
             </div>
         </div>
     )
