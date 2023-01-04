@@ -1,0 +1,12 @@
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 75px;
+    margin-top: 10%;
+}
+
+.sidebarText {
+    font-size: larger;
+    
+}
