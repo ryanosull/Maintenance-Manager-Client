@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,31 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.App.dark{
+  
+  background-color: rgb(32, 31, 31);
+color: #fff;
+color: var(--font-color);
+--font-color: rgb(0, 0, 0);
+}
+.App.light {
+  background-color: rgb(255, 255, 255);
+  color: rgb(47, 60, 213);
+  /* background: repeating-linear-gradient(
+  45deg,
+  #010319,
+  #606dbc 10px,
+  #a7fb30 10px,
+  #465298 20px
+  ) */
+  }
+
+.darkmode-Button{
+  height: 50px;
+  width: 200px;
+  background-color: rgba(55, 27, 138, 0.384);
+  font-size: 100%;
+  /* left:90% */
 }
