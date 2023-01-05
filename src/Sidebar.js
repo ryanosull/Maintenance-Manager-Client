@@ -1,25 +1,24 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
-import UnitOverview from "./UnitOverview";
+// import UnitOverview from "./UnitOverview";
 
-const UnitsUrl = "http://localhost:9292/units"
+
 
 function Sidebar () {
 
-    const [units, setUnits] = useState([])
+    // const [units, setUnits] = useState([])
 
-    useEffect(() => {
-        fetch(UnitsUrl)
-        .then(resp => resp.json())
-        .then(unitData => setUnits(unitData))
-    }, [])
+    // useEffect(() => {
+    //     fetch(UnitsUrl)
+    //     .then(resp => resp.json())
+    //     .then(unitData => setUnits(unitData))
+    // }, [])
 
-
+//ternary to route is x ? render overview : home
     return (
-        <div id="sidebar">
-            <div className="sidebarText">
-                <UnitOverview units={units} />
-            </div>
+        <nav id="sidebar">
+            <NavLink exact to="/unitsoverview">Units Overview</NavLink>
             <div className="sidebarText">
                 New Maintenance Request
             </div>
@@ -29,7 +28,7 @@ function Sidebar () {
             <div className="sidebarText">
                 All Requests
             </div>
-        </div>
+        </nav>
     )
 
 

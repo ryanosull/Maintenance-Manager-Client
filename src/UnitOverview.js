@@ -1,8 +1,17 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 // import UnitTable from "./UnitTable"
 
+const UnitsUrl = "http://localhost:9292/units"
 
-function UnitOverview ({units}) {
+function UnitOverview () {
+
+    const [units, setUnits] = useState([])
+
+    useEffect(() => {
+        fetch(UnitsUrl)
+        .then(resp => resp.json())
+        .then(unitData => setUnits(unitData))
+    }, [])
 
     return (
         <div>
