@@ -1,21 +1,16 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
+import {Switch, Route} from "react-router-dom";
 import './App.css';
 import Header from "./Header";
 import Sidebar from  "./Sidebar";
+import UnitOverview from "./UnitOverview"
 
-// const maintReqsUrl = "http://localhost:9292/maintenancerequests"
+
 
 
 
 function App() {
   
-  // const [maintReqs, setMaintReqs] = useState([])
-  
-  // useEffect(() => {
-  //   fetch(maintReqsUrl)
-  //   .then(resp => resp.json())
-  //   .then(reqData => setMaintReqs(reqData))
-  // })
 
 
 
@@ -23,6 +18,11 @@ function App() {
     <div >
       <Header />
       <Sidebar />
+      <Switch>
+        <Route path={"/unitsoverview"}>
+          <UnitOverview />
+        </Route>        
+      </Switch>
     </div> 
   );
 }
