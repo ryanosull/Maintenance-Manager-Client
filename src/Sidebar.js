@@ -19,9 +19,7 @@ function Sidebar () {
     return (
         <nav id="sidebar">
             <NavLink exact to="/unitsoverview">Units Overview</NavLink>
-            <div className="sidebarText">
-                New Maintenance Request
-            </div>
+            <NavLink exact to="/newmaintenancerequest">New Maintenance Request</NavLink>
             <div className="sidebarText">
                 Open Requests
             </div>

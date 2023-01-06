@@ -4,20 +4,14 @@ import './App.css';
 import Header from "./Header";
 import Sidebar from  "./Sidebar";
 import UnitOverview from "./UnitOverview"
+import NewRequestForm from "./NewRequestForm";
 
-// const UnitsUrl = "http://localhost:9292/units"
+
 
 
 
 function App() {
   
-  // const [units, setUnits] = useState([])
-
-  // useEffect(() => {
-  //     fetch(UnitsUrl)
-  //     .then(resp => resp.json())
-  //     .then(unitData => setUnits(unitData))
-  // }, [])
 
 
 
@@ -27,9 +21,12 @@ function App() {
       <Header />
       <Sidebar />
         <Switch>
-          <Route path="/unitsoverview">
-            <UnitOverview />
-          </Route>        
+            <Route path="/unitsoverview">
+              <UnitOverview />
+            </Route>
+            <Route path="/newmaintenancerequest">
+              <NewRequestForm />
+            </Route>
         </Switch>
     </div> 
   );
