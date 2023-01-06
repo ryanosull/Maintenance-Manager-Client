@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from "react"
+import "./UnitOverview.css"
+
 
 const openReqsUrl = "http://localhost:9292/openrequests"
 
 function OpenRequests () {
-
 
     const [openReqs, setOpenReqs] = useState([])
 
@@ -13,23 +14,27 @@ function OpenRequests () {
         .then(reqData => setOpenReqs(reqData))
     }, [])
 
+    console.log(openReqs)
 
     return (
         <div>
             <table>
                 <tr>
-                    <th>Owner ID</th>
-                    <th>Address</th>
-                    <th>Current Tenant</th>
-                    <th>Current Open Request?</th>
+                    <th>Urgency</th>
+                    <th>Description</th>
+                    <th>Expected Cost</th>
+                    <th>Actual Cost</th>
+                    <th>Date Opened</th>
+                    <th>Date Closed</th>
                 </tr>
                 {openReqs.map((req) => {
                     return (
                     <tr key={req.id}>
-                        <td>{req.owner_id}</td>
-                        <td>{req.address}</td>
-                        <td>{req.current_tenant}</td>
-                        <td>{openReqs["open_request?"]}✔️</td>
+                        <td>{req.urgency}</td>
+                        <td>{req.expected_cost}</td>
+                        <td>{req.actual_cost}</td>
+                        <td>{req.date_opened}</td>
+                        <td>{req.date_closed}</td>
                     </tr>
                     )
                 })}

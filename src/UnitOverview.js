@@ -1,17 +1,19 @@
 import React, {useState, useEffect} from "react";
-// import UnitTable from "./UnitTable"
 
-const UnitsUrl = "http://localhost:9292/units"
+
+const unitsUrl = "http://localhost:9292/units"
 
 function UnitOverview () {
 
     const [units, setUnits] = useState([])
 
     useEffect(() => {
-        fetch(UnitsUrl)
+        fetch(unitsUrl)
         .then(resp => resp.json())
         .then(unitData => setUnits(unitData))
     }, [])
+
+    // console.log(units)
 
     return (
         <div>

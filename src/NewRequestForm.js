@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-// const requestUrl = "http://localhost:9292/maintenancerequests"
+const requestUrl = "http://localhost:9292/maintenancerequests"
 
 
 function NewRequestForm () {
@@ -43,7 +43,7 @@ function NewRequestForm () {
             },
             body: JSON.stringify(newMaintReq),
         }
-        fetch("http://localhost:9292/maintenancerequests", postRequest)
+        fetch(requestUrl, postRequest)
         .then(r => r.json())
         .then(newMaintReq => setRequests([...requests, newMaintReq]))
     }
