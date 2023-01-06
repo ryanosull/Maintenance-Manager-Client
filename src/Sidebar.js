@@ -1,28 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
-// import UnitOverview from "./UnitOverview";
+
 
 
 
 function Sidebar () {
 
-    // const [units, setUnits] = useState([])
 
-    // useEffect(() => {
-    //     fetch(UnitsUrl)
-    //     .then(resp => resp.json())
-    //     .then(unitData => setUnits(unitData))
-    // }, [])
-
-//ternary to route is x ? render overview : home
     return (
         <nav id="sidebar">
-            <NavLink exact to="/unitsoverview">Units Overview</NavLink>
-            <NavLink exact to="/newmaintenancerequest">New Maintenance Request</NavLink>
-            <div className="sidebarText">
-                Open Requests
-            </div>
+            <NavLink className="sidebarText" exact to="/unitsoverview">Units Overview</NavLink>
+            <NavLink className="sidebarText" exact to="/newmaintenancerequest">New Maintenance Request</NavLink>
+            <NavLink className="sidebarText" exact to="/openrequests">Open Requests</NavLink>
             <div className="sidebarText">
                 All Requests
             </div>

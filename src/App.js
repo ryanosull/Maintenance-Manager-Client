@@ -5,6 +5,7 @@ import Header from "./Header";
 import Sidebar from  "./Sidebar";
 import UnitOverview from "./UnitOverview"
 import NewRequestForm from "./NewRequestForm";
+import OpenRequests from "./OpenRequests";
 
 
 
@@ -26,6 +27,9 @@ function App() {
             </Route>
             <Route path="/newmaintenancerequest">
               <NewRequestForm />
+            </Route>
+            <Route path="/openrequests">
+              <OpenRequests />
             </Route>
         </Switch>
     </div> 
