@@ -87,6 +87,8 @@ function NewRequestForm () {
 export default NewRequestForm
 
 // need to work on backend first, but new req should include unit and maintreq IDs. 
+// get rid of actual cost. this is something that will be PATCHed in the open req section.
+//get rid of date closed. add this to open req section. 
 
 
 
