@@ -39,7 +39,7 @@ function App() {
               <UnitOverview units={units} owners={owners} />
             </Route>
             <Route path="/newmaintenancerequest">
-              <NewRequestForm units={units} />
+              <NewRequestForm units={units} owners={owners} />
             </Route>
             <Route path="/openrequests">
               <OpenRequests />
