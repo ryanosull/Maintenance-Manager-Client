@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {Switch, Route} from "react-router-dom"; // look up this error, determine action
 import './App.css';
 import Header from "./Header";
@@ -7,14 +7,19 @@ import UnitOverview from "./UnitOverview"
 import NewRequestForm from "./NewRequestForm";
 import OpenRequests from "./OpenRequests";
 
-
-//this is a test for test branch - commits not appearing in gh contribs. 
-
+//declare endpoint variables
+const unitsUrl = "http://localhost:9292/units";
 
 function App() {
   
+  //setting state
+  const [units, setUnits] = useState([]);
 
-
+  useEffect(() => { //fetch units
+    fetch(unitsUrl)
+    .then(resp => resp.json())
+    .then(unitData => setUnits(unitData))
+}, []);
 
 
   return (
@@ -26,7 +31,7 @@ function App() {
               <UnitOverview />
             </Route>
             <Route path="/newmaintenancerequest">
-              <NewRequestForm />
+              <NewRequestForm units={units} />
             </Route>
             <Route path="/openrequests">
               <OpenRequests />
