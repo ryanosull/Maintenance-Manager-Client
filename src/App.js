@@ -9,17 +9,25 @@ import OpenRequests from "./OpenRequests";
 
 //declare endpoint variables
 const unitsUrl = "http://localhost:9292/units";
+const ownersUrl = "http://localhost:9292/owners";
 
 function App() {
   
   //setting state
   const [units, setUnits] = useState([]);
+  const [owners, setOwners] = useState([]);
 
   useEffect(() => { //fetch units
     fetch(unitsUrl)
     .then(resp => resp.json())
     .then(unitData => setUnits(unitData))
 }, []);
+
+  useEffect(() => { //fetch owners
+    fetch(ownersUrl)
+    .then(resp => resp.json())
+    .then(ownerData => setOwners(ownerData))
+  }, []);
 
 
   return (
@@ -28,7 +36,7 @@ function App() {
       <Sidebar />
         <Switch>
             <Route path="/unitsoverview">
-              <UnitOverview />
+              <UnitOverview units={units} owners={owners} />
             </Route>
             <Route path="/newmaintenancerequest">
               <NewRequestForm units={units} />
