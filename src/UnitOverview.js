@@ -8,7 +8,7 @@ const ownersUrl = "http://localhost:9292/owners";
 function UnitOverview () {
 
     //setting state
-    const [units, setUnits] = useState([]) ;
+    const [units, setUnits] = useState([]);
     const [owners, setOwners] = useState([]);
 
     useEffect(() => { //fetch units
