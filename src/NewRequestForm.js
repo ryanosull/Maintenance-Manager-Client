@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const requestUrl = "http://localhost:9292/maintenancerequests"
+const requestUrl = "http://localhost:9292/maintenancerequests"; //declare endpoint variable
 
 
 function NewRequestForm () {
@@ -58,13 +58,13 @@ function NewRequestForm () {
                     <div id="radioButton">
 
                         <input onChange={(e) => setUrgency(e.target.value)} type="radio" name="urgency" id="low" value="low" />
-                        <label for="low">Low</label>
+                        <label htmlFor="low">Low</label>
 
                         <input onChange={(e) => setUrgency(e.target.value)} type="radio" name="urgency" id="medium" value="medium" />
-                        <label for="medium">Medium</label>
+                        <label htmlFor="medium">Medium</label>
 
                         <input onChange={(e) => setUrgency(e.target.value)} type="radio" name="urgency" id="high" value="high" />
-                        <label for="high">High</label>
+                        <label htmlFor="high">High</label>
 
                     </div>
                 </fieldset>
