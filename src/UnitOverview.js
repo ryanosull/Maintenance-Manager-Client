@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
 
 
-const unitsUrl = "http://localhost:9292/units";
+//declare endpoint variables
+const unitsUrl = "http://localhost:9292/units"; 
 const ownersUrl = "http://localhost:9292/owners";
 
 function UnitOverview () {
