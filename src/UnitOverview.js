@@ -1,29 +1,8 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 
 
-//declare endpoint variables
-const unitsUrl = "http://localhost:9292/units"; 
-const ownersUrl = "http://localhost:9292/owners";
 
-function UnitOverview () {
-
-    //setting state
-    const [units, setUnits] = useState([]);
-    const [owners, setOwners] = useState([]);
-
-    useEffect(() => { //fetch units
-        fetch(unitsUrl)
-        .then(resp => resp.json())
-        .then(unitData => setUnits(unitData))
-    }, []);
-
-    useEffect(() => { //fetch owners
-        fetch(ownersUrl)
-        .then(resp => resp.json())
-        .then(ownerData => setOwners(ownerData))
-    }, []);
-
-    // console.log(owners)
+function UnitOverview ({units, owners}) {
 
 
     return (
@@ -55,7 +34,7 @@ function UnitOverview () {
                 </tbody>
             </table>
         </div>
-    )
+    );
 };
 
 export default UnitOverview
