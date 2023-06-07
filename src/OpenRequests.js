@@ -14,7 +14,8 @@ function OpenRequests () {
         .then(reqData => setOpenReqs(reqData))
     }, [])
 
-    console.log(openReqs)
+    // console.log(openReqs)
+    //currently pulling in unit info.
 
     return (
         <div>
@@ -44,4 +45,13 @@ function OpenRequests () {
 
 };
 
-export default OpenRequests
+export default OpenRequests;
+
+//what needs to happen here. 
+// could define open requests as those with a date_closed: nil
+//i think we should remove open_req? from Unit. will have to adjust units overview to display open req (something like if date_closed === nil ? display + for open req : otherwise display - for no current open_reqs)
+//thinking we do not need Unit.open_requests. 
+
+//we want maint req info in here. we likely want unit and req info in here. 
+
+//if date_closed === nil, then display unit_id and do some logic to get the info that we need. 
