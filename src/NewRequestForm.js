@@ -3,7 +3,7 @@ import React, {useState} from "react";
 const requestUrl = "http://localhost:9292/maintenancerequests"; //declare endpoint variable
 
 
-function NewRequestForm ({units}) {
+function NewRequestForm ({units, owners}) {
 
     const [requests, setRequests] = useState([]);
 
@@ -95,11 +95,12 @@ function NewRequestForm ({units}) {
             </form>
 
         <div>
-            <h4>Unit ID Quick Reference</h4>
+            <h4>Unit ID Quick Reference ↓</h4>
             <table>
                 <thead>
                     <tr>
                         <th>Unit ID</th>
+                        <th>Owner Name</th>
                         <th>Address</th>
                         <th>Tenant</th>
                     </tr>
@@ -109,6 +110,8 @@ function NewRequestForm ({units}) {
                         return (
                             <tr key={unit.id}>
                                 <td>{unit.id}</td>
+                                <td>{owners.find((owner) => owner.id === unit.owner_id)?.name || null}</td> 
+
                                 <td>{unit.address}</td>
                                 <td>{unit.current_tenant}</td>
                             </tr>
