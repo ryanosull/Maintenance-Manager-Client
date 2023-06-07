@@ -37,4 +37,4 @@ function UnitOverview ({units, owners}) {
     );
 };
 
-export default UnitOverview
+export default UnitOverview;
