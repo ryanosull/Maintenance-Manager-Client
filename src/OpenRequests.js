@@ -4,27 +4,23 @@ import "./UnitOverview.css";
 
 const unitsWithOpenReqsUrl = "http://localhost:9292/unitswithopenrequests"; //likely uncessary once open_req? column removed
 
-const openMaintReqsUrl = "http://localhost:9292/openmaintreqs";
 
-function OpenRequests () {
 
-    const [unitReqs, setUnitReqs] = useState([]);
-    const [maintReqs, setMaintReqs] = useState([]);
+function OpenRequests ({openReqs}) {
 
-    useEffect(() => {
+    const [unitReqs, setUnitReqs] = useState([]); // likely delete
+
+
+    useEffect(() => {  //will likely delete this
         fetch(unitsWithOpenReqsUrl)
         .then(resp => resp.json())
         .then(unitReqData => setUnitReqs(unitReqData))
     }, []);
 
-    useEffect(() => {
-        fetch(openMaintReqsUrl)
-        .then(resp => resp.json())
-        .then(maintData => setMaintReqs(maintData))
-    }, []);
+
 
     console.log(unitReqs)
-    console.log(maintReqs)
+    // console.log(openReqs)
 
     return (
         <div>
@@ -41,7 +37,7 @@ function OpenRequests () {
                 </thead>
                     <tbody>
                         
-                        {maintReqs.map((req) => {
+                        {openReqs.map((req) => {
                             return (
                             <tr key={req.id}>
                                 <td>{req.urgency}</td>

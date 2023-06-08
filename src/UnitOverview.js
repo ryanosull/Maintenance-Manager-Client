@@ -3,8 +3,10 @@ import "./UnitOverview.css";
 
 
 
-function UnitOverview ({units, owners}) {
+function UnitOverview ({units, owners, openReqs}) {
 
+    console.log(units)
+    console.log(openReqs)
 
     return (
         <div id="tableContainer">
@@ -29,7 +31,7 @@ function UnitOverview ({units, owners}) {
                             <td>{owners.find((owner) => owner.id === unit.owner_id)?.phone_number || null}</td> 
                             <td>{unit.address}</td>
                             <td>{unit.current_tenant}</td>
-                            <td>{unit["open_request?"] ? "✅" : "✖️"}</td> 
+                            {/* <td>{unit["open_request?"] ? "✅" : "✖️"}</td>  */}
                         </tr>
                         );
                     })}
@@ -45,3 +47,11 @@ export default UnitOverview;
 //here, for the current open req table column, we want to show if req is open by date closed === nil. 
 //get rid of open_req? column in backend. 
 // we will likely not need units with open reqs because we will use logic to represent - meaning take care of route on backend - likely uncessary
+
+
+
+//when maintreqs date_closed === nil, take that same unit_id to Unit.id 
+//for all units, if unit.id === maintreq.unit_id, then display ✅, otherwise display ✖️
+
+
+//refactor and take logic out of jsx. save all that shit to a variable and then {placeIt}.
