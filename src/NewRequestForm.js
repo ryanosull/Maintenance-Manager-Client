@@ -81,7 +81,7 @@ function NewRequestForm ({units, owners}) {
 
                 <input onChange={(e) => setUnitID(e.target.value)} type="number" name="unitID" placeholder="Enter Unit ID number" value={unitID} required />
 
-                <input onChange={(e) => setDescription(e.target.value)} type="text" name="description" placeholder="Describe the tenant's request here" value={description} required />
+                <textarea onChange={(e) => setDescription(e.target.value)} type="text" name="description" placeholder="Describe the tenant's request here" value={description} required />
                 
                 <input onChange={(e) => setExpectedCost(e.target.value)} type="number" name="expectedCost" step="0.01" placeholder="Expected cost of repair" value={expectedCost} required />
                 
@@ -95,7 +95,7 @@ function NewRequestForm ({units, owners}) {
             </form>
 
         <div>
-            <h4>Unit ID Quick Reference ↓</h4>
+            <h4>↓ Unit ID Quick Reference ↓</h4>
             <table>
                 <thead>
                     <tr>

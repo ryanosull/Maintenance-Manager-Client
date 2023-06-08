@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react"
 import "./UnitOverview.css"
 
 
-const openReqsUrl = "http://localhost:9292/openrequests"
+const openReqsUrl = "http://localhost:9292/unitswithopenrequests"
 
 function OpenRequests () {
 
@@ -14,7 +14,7 @@ function OpenRequests () {
         .then(reqData => setOpenReqs(reqData))
     }, [])
 
-    // console.log(openReqs)
+    console.log(openReqs)
     //currently pulling in unit info.
 
     return (
