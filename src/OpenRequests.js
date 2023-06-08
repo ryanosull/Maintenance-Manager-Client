@@ -2,19 +2,29 @@ import React, {useState, useEffect} from "react"
 import "./UnitOverview.css"
 
 
-const openReqsUrl = "http://localhost:9292/unitswithopenrequests"
+const unitsWithOpenReqsUrl = "http://localhost:9292/unitswithopenrequests"
+
+const openMaintReqsUrl = "http://localhost:9292/openmaintreqs"
 
 function OpenRequests () {
 
-    const [openReqs, setOpenReqs] = useState([])
+    const [unitReqs, setUnitReqs] = useState([])
+    const [maintReqs, setMaintReqs] = useState([])
 
     useEffect(() => {
-        fetch(openReqsUrl)
+        fetch(unitsWithOpenReqsUrl)
         .then(resp => resp.json())
-        .then(reqData => setOpenReqs(reqData))
+        .then(unitReqData => setUnitReqs(unitReqData))
     }, [])
 
-    console.log(openReqs)
+    useEffect(() => {
+        fetch(openMaintReqsUrl)
+        .then(resp => resp.json())
+        .then(maintData => setMaintReqs(maintData))
+    }, [])
+
+    console.log(unitReqs)
+    console.log(maintReqs)
     //currently pulling in unit info.
 
     return (
@@ -28,7 +38,7 @@ function OpenRequests () {
                     <th>Date Opened</th>
                     <th>Date Closed</th>
                 </tr>
-                {openReqs.map((req) => {
+                {unitReqs.map((req) => {
                     return (
                     <tr key={req.id}>
                         <td>{req.urgency}</td>
