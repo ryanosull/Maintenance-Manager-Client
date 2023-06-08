@@ -24,7 +24,7 @@ function OpenRequests () {
     }, []);
 
     console.log(unitReqs)
-    // console.log(maintReqs)
+    console.log(maintReqs)
 
     return (
         <div>
@@ -36,6 +36,7 @@ function OpenRequests () {
                     <th>Expected Cost</th>
                     <th>Date Opened</th>
                     <th>Date Closed</th>
+                    <th>Unit ID</th>
                 </tr>
                 </thead>
                     <tbody>
@@ -48,6 +49,7 @@ function OpenRequests () {
                                 <td>{req.expected_cost}</td>
                                 <td>{req.date_opened}</td>
                                 <td>{req.date_closed}</td>
+                                <td>{req.unit_id}</td>
                             </tr>
                             );
                         })}

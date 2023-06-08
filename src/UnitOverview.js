@@ -20,7 +20,7 @@ function UnitOverview ({units, owners}) {
                     </tr>
                 </thead>
                 <tbody>
-                    {units.map((unit) => { //chaining syntax use below for name and phone_number
+                    {units.map((unit) => { //chaining syntax: find owner where owner ID matches unit.owner_id, the display name/number if true, otherwise do nothing
                         return (
                         <tr key={unit.id}>
                             <td>{unit.owner_id}</td>
