@@ -126,3 +126,5 @@ function NewRequestForm ({units, owners}) {
 };
 
 export default NewRequestForm;
+
+//reorganize table: Unit ID, address, tenant, Owner, Owner ID

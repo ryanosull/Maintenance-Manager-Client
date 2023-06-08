@@ -22,11 +22,29 @@ function UnitOverview ({units, owners, openReqs}) {
 
     // const currentOpenReqs = units.find((unit) => unit.id === openReqs.find((req) => req.unit_id).unit_id) ? "✅" : "✖️";//returns all CHECK
 
-    const currentOpenReqs = "this"
+    // let currentOpenReqs = "✖️";
+    // for (let i = 0; i < openReqs.length; i++) {
+    //   const req = openReqs[i];
+    //   for (let j = 0; j < units.length; j++) {
+    //     const unit = units[j];
+    //     if (unit.id === req.unit_id) {
+    //       currentOpenReqs = "✅";
+    //       break;
+    //     }
+    //   }
+    //   if (currentOpenReqs === "✅") {
+    //     break;
+    //   }
+    // }   returning all true values
+
+    const currentOpenReqs = "xxx"
+    
 
 
 //when maintreqs date_closed === nil, take that same unit_id to Unit.id 
 //for all units, if unit.id === maintreq.unit_id, then display ✅, otherwise display ✖️
+
+//good question for JAV here = this kind of logic better handled on the backend or ok to (((try))) and handle here?
 
     return (
         <div id="tableContainer">
@@ -36,6 +54,7 @@ function UnitOverview ({units, owners, openReqs}) {
                         <th>Owner ID</th>
                         <th>Owner Name</th>
                         <th>Owner Phone</th>
+                        <th>Unit ID</th>
                         <th>Address</th>
                         <th>Current Tenant</th>
                         <th>Current Open Request?</th>
@@ -49,6 +68,7 @@ function UnitOverview ({units, owners, openReqs}) {
                             {/* chaining syntax: find owner where owner ID matches unit.owner_id, then display name/number if true, or do nothing */}
                             <td>{owners.find((owner) => owner.id === unit.owner_id)?.name || null}</td> 
                             <td>{owners.find((owner) => owner.id === unit.owner_id)?.phone_number || null}</td> 
+                            <td>{unit.id}</td>
                             <td>{unit.address}</td>
                             <td>{unit.current_tenant}</td>
                             {/* <td>{unit["open_request?"] ? "✅" : "✖️"}</td>  */}
