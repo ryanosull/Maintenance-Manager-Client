@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import "./UnitOverview.css";
 
 
-const unitsWithOpenReqsUrl = "http://localhost:9292/unitswithopenrequests";
+const unitsWithOpenReqsUrl = "http://localhost:9292/unitswithopenrequests"; //likely uncessary once open_req? column removed
 
 const openMaintReqsUrl = "http://localhost:9292/openmaintreqs";
 
@@ -67,7 +67,7 @@ export default OpenRequests;
 //i think we should remove open_req? from Unit. will have to adjust units overview to display open req (something like if date_closed === nil ? display + for open req : otherwise display - for no current open_reqs)
 //thinking we do not need Unit.open_requests. 
 
-//we want maint req info in here. we likely want unit and req info in here. 
+
 
 //if date_closed === nil, then display unit_id and do some logic to get the info that we need. 
 
