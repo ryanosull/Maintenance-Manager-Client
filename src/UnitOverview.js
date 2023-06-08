@@ -8,6 +8,26 @@ function UnitOverview ({units, owners, openReqs}) {
     console.log(units)
     console.log(openReqs)
 
+    // const currentOpenReqs = {
+    //     value: (units.find((unit) => unit.id === openReqs.unit_id)?. "this" || "that")
+    // }
+
+    // const currentOpenReqs = {
+    //     units.find((unit) => unit.id === openReqs.unit_id ? ✅ : ➕
+    // }
+
+    // const currentOpenReqs = units.find((unit) => unit.id === openReqs.unit_id) ? "✅" : "✖️";  // returns all X
+
+    // const currentOpenReqs = units.find((unit) => unit.id === (openReqs.find((req) => req.unit_id))) ? "✅" : "✖️"
+
+    // const currentOpenReqs = units.find((unit) => unit.id === openReqs.find((req) => req.unit_id).unit_id) ? "✅" : "✖️";//returns all CHECK
+
+    const currentOpenReqs = "this"
+
+
+//when maintreqs date_closed === nil, take that same unit_id to Unit.id 
+//for all units, if unit.id === maintreq.unit_id, then display ✅, otherwise display ✖️
+
     return (
         <div id="tableContainer">
             <table id="unitsOverviewTable">
@@ -32,6 +52,7 @@ function UnitOverview ({units, owners, openReqs}) {
                             <td>{unit.address}</td>
                             <td>{unit.current_tenant}</td>
                             {/* <td>{unit["open_request?"] ? "✅" : "✖️"}</td>  */}
+                            <td>{currentOpenReqs}</td>
                         </tr>
                         );
                     })}
@@ -50,8 +71,7 @@ export default UnitOverview;
 
 
 
-//when maintreqs date_closed === nil, take that same unit_id to Unit.id 
-//for all units, if unit.id === maintreq.unit_id, then display ✅, otherwise display ✖️
+
 
 
 //refactor and take logic out of jsx. save all that shit to a variable and then {placeIt}.
