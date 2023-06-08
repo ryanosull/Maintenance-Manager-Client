@@ -1,35 +1,35 @@
-import React, {useState, useEffect} from "react"
-import "./UnitOverview.css"
+import React, {useState, useEffect} from "react";
+import "./UnitOverview.css";
 
 
-const unitsWithOpenReqsUrl = "http://localhost:9292/unitswithopenrequests"
+const unitsWithOpenReqsUrl = "http://localhost:9292/unitswithopenrequests";
 
-const openMaintReqsUrl = "http://localhost:9292/openmaintreqs"
+const openMaintReqsUrl = "http://localhost:9292/openmaintreqs";
 
 function OpenRequests () {
 
-    const [unitReqs, setUnitReqs] = useState([])
-    const [maintReqs, setMaintReqs] = useState([])
+    const [unitReqs, setUnitReqs] = useState([]);
+    const [maintReqs, setMaintReqs] = useState([]);
 
     useEffect(() => {
         fetch(unitsWithOpenReqsUrl)
         .then(resp => resp.json())
         .then(unitReqData => setUnitReqs(unitReqData))
-    }, [])
+    }, []);
 
     useEffect(() => {
         fetch(openMaintReqsUrl)
         .then(resp => resp.json())
         .then(maintData => setMaintReqs(maintData))
-    }, [])
+    }, []);
 
     console.log(unitReqs)
-    console.log(maintReqs)
-    //currently pulling in unit info.
+    // console.log(maintReqs)
 
     return (
         <div>
             <table>
+                <thead>
                 <tr>
                     <th>Urgency</th>
                     <th>Description</th>
@@ -37,21 +37,25 @@ function OpenRequests () {
                     <th>Date Opened</th>
                     <th>Date Closed</th>
                 </tr>
-                {maintReqs.map((req) => {
-                    return (
-                    <tr key={req.id}>
-                        <td>{req.urgency}</td>
-                        <td>{req.description}</td>
-                        <td>{req.expected_cost}</td>
-                        <td>{req.date_opened}</td>
-                        <td>{req.date_closed}</td>
-                    </tr>
-                    )
-                })}
+                </thead>
+                    <tbody>
+                        
+                        {maintReqs.map((req) => {
+                            return (
+                            <tr key={req.id}>
+                                <td>{req.urgency}</td>
+                                <td>{req.description}</td>
+                                <td>{req.expected_cost}</td>
+                                <td>{req.date_opened}</td>
+                                <td>{req.date_closed}</td>
+                            </tr>
+                            );
+                        })}
+
+                    </tbody>
             </table>
         </div>
-    )
-
+    );
 };
 
 export default OpenRequests;

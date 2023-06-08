@@ -30,7 +30,7 @@ function UnitOverview ({units, owners}) {
                             <td>{unit.current_tenant}</td>
                             <td>{unit["open_request?"] ? "✅" : "✖️"}</td> 
                         </tr>
-                        )
+                        );
                     })}
                 </tbody>
             </table>
