@@ -10,12 +10,14 @@ import OpenRequests from "./OpenRequests";
 //declare endpoint variables
 const unitsUrl = "http://localhost:9292/units";
 const ownersUrl = "http://localhost:9292/owners";
+const openMaintReqsUrl = "http://localhost:9292/openmaintreqs";
 
 function App() {
   
   //setting state
   const [units, setUnits] = useState([]);
   const [owners, setOwners] = useState([]);
+  const [openReqs, setOpenReqs] = useState([]);
 
   useEffect(() => { //fetch units
     fetch(unitsUrl)
@@ -29,6 +31,12 @@ function App() {
     .then(ownerData => setOwners(ownerData))
   }, []);
 
+  useEffect(() => { // fetch MaintReqs where date_closed: nil / in other words, open reqs. 
+    fetch(openMaintReqsUrl)
+    .then(resp => resp.json())
+    .then(maintData => setOpenReqs(maintData))
+}, []);
+
 
   return (
     <div >
@@ -36,13 +44,13 @@ function App() {
       <Sidebar />
         <Switch>
             <Route path="/unitsoverview">
-              <UnitOverview units={units} owners={owners} />
+              <UnitOverview units={units} owners={owners} openReqs={openReqs} />
             </Route>
             <Route path="/newmaintenancerequest">
               <NewRequestForm units={units} owners={owners} />
             </Route>
             <Route path="/openrequests">
-              <OpenRequests />
+              <OpenRequests openReqs={openReqs} />
             </Route>
         </Switch>
     </div> 
