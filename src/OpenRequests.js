@@ -34,16 +34,15 @@ function OpenRequests () {
                     <th>Urgency</th>
                     <th>Description</th>
                     <th>Expected Cost</th>
-                    <th>Actual Cost</th>
                     <th>Date Opened</th>
                     <th>Date Closed</th>
                 </tr>
-                {unitReqs.map((req) => {
+                {maintReqs.map((req) => {
                     return (
                     <tr key={req.id}>
                         <td>{req.urgency}</td>
+                        <td>{req.description}</td>
                         <td>{req.expected_cost}</td>
-                        <td>{req.actual_cost}</td>
                         <td>{req.date_opened}</td>
                         <td>{req.date_closed}</td>
                     </tr>
@@ -65,3 +64,5 @@ export default OpenRequests;
 //we want maint req info in here. we likely want unit and req info in here. 
 
 //if date_closed === nil, then display unit_id and do some logic to get the info that we need. 
+
+//low green, med yellow, high red
