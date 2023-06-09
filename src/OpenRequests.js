@@ -26,6 +26,7 @@ function OpenRequests ({openReqs, setOpenReqs}) {
 
     //likely do not need anything above this line
 
+    
 
     const [formData, setFormData] = useState ({
         date_closed: openReqs.map((req) => req.date_closed)
@@ -39,11 +40,13 @@ function OpenRequests ({openReqs, setOpenReqs}) {
             ...prevData,
             [name]: value,
         }));
+
+        console.log(name, value) //working as intended. logging: <date_closed 2023-06-21>
     };
 
     function handleSubmit(e) {
 
-        e.preventDefault()
+        e.preventDefault();
 
         const patchReq = { //PATCH as object
             method: 'PATCH',
@@ -58,11 +61,13 @@ function OpenRequests ({openReqs, setOpenReqs}) {
             const updatedRequests = openReqs.map(req => (req.id === patchedRequest.id ? patchedRequest : req));
 
             setOpenReqs(updatedRequests);
-
         });
 
+        console.log(openReqs.map(req => req.id))
     };
 
+    // at value={ || ""} this controls form, but disallows date selection to be displayed. note that value is still getting logged by above c.log.
+    // ternary to display selected date if input is changed? --- inputIsEmpty ? "" : e.target.value or req.date_closed 
 
     return (
         <div>
