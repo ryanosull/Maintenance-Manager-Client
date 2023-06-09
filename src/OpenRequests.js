@@ -1,27 +1,27 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import "./UnitOverview.css";
+//use effect removed
 
+// const unitsWithOpenReqsUrl = "http://localhost:9292/unitswithopenrequests"; //likely uncessary once open_req? column removed
 
-const unitsWithOpenReqsUrl = "http://localhost:9292/unitswithopenrequests"; //likely uncessary once open_req? column removed
-
-const maintReqPatchUrl = "http://localhost:9292/maintenancerequests/:id"; //declare endpoint variable
+const maintReqUrl = "http://localhost:9292/maintenancerequests/"; //declare endpoint variable
 
 
 function OpenRequests ({openReqs, setOpenReqs}) {
 
-    const [unitReqs, setUnitReqs] = useState([]); // likely delete
+    // const [unitReqs, setUnitReqs] = useState([]); // likely delete
 
 
-    useEffect(() => {  //will likely delete this
-        fetch(unitsWithOpenReqsUrl)
-        .then(resp => resp.json())
-        .then(unitReqData => setUnitReqs(unitReqData))
-    }, []);
+    // useEffect(() => {  //will likely delete this
+    //     fetch(unitsWithOpenReqsUrl)
+    //     .then(resp => resp.json())
+    //     .then(unitReqData => setUnitReqs(unitReqData))
+    // }, []);
 
 
     // const test = openReqs.map((req) => {} )
 
-    console.log(unitReqs, "removing error")
+    // console.log(unitReqs, "removing error")
     // // console.log(openReqs)
 
     //likely do not need anything above this line
@@ -51,7 +51,7 @@ function OpenRequests ({openReqs, setOpenReqs}) {
 			body: JSON.stringify(formData),
         };
 
-        fetch(maintReqPatchUrl, patchReq)
+        fetch(`${maintReqUrl}${openReqs.map(req => req.id)}`, patchReq)
         .then(resp => resp.json())
         .then(patchedRequest => {
 
@@ -90,13 +90,14 @@ function OpenRequests ({openReqs, setOpenReqs}) {
                                 
                                 <td>
                                     <form onSubmit={handleSubmit}>
-                                        <input onChange={handleInputChange} type="date" name="date_closed" value={req.date_closed}/>
+                                        <input onChange={handleInputChange} type="date" name="date_closed" value={req.date_closed || ""}/>
                                         <button type="submit">submit</button>
                                     </form>
                                 </td>
 
                                 <td>{req.unit_id}</td>
                                 <td><button>DELETE❌</button></td>
+
                             </tr>
                             );
                         })}
@@ -119,3 +120,7 @@ export default OpenRequests;
 //if date_closed === nil, then display unit_id and do some logic to get the info that we need. 
 
 //low green, med yellow, high red
+
+//need actual cost in here, as well!
+
+//maybe we have a solution/notes column that we patch in as well. will start as nil, then patch in notes. 
