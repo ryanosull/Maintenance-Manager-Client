@@ -19,8 +19,8 @@ function OpenRequests ({openReqs}) {
 
 
 
-    console.log(unitReqs)
-    // console.log(openReqs)
+    // console.log(unitReqs)
+    // // console.log(openReqs)
 
     return (
         <div>
@@ -33,6 +33,7 @@ function OpenRequests ({openReqs}) {
                     <th>Date Opened</th>
                     <th>Date Closed</th>
                     <th>Unit ID</th>
+                    <th>Delete</th>
                 </tr>
                 </thead>
                     <tbody>
@@ -44,8 +45,13 @@ function OpenRequests ({openReqs}) {
                                 <td>{req.description}</td>
                                 <td>{req.expected_cost}</td>
                                 <td>{req.date_opened}</td>
-                                <td>{req.date_closed}</td>
+                                
+                                <td>
+                                    {req.date_closed} PATCH✍️ <button>submit</button>
+                                </td>
+
                                 <td>{req.unit_id}</td>
+                                <td><button>DELETE❌</button></td>
                             </tr>
                             );
                         })}
