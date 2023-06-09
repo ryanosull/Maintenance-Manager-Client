@@ -16,11 +16,11 @@ function UnitOverview ({units, owners, openReqs}) {
     //     units.find((unit) => unit.id === openReqs.unit_id ? ✅ : ➕
     // }
 
-    // const currentOpenReqs = units.find((unit) => unit.id === openReqs.unit_id) ? "✅" : "✖️";  // returns all X
+    // const currentOpenReqs = units.find((unit) => unit.id === openReqs.unit_id) ? "✅" : "✖️";  // returns all falsey
 
-    // const currentOpenReqs = units.find((unit) => unit.id === (openReqs.find((req) => req.unit_id))) ? "✅" : "✖️"
+    // const currentOpenReqs = units.find((unit) => unit.id === (openReqs.find((req) => req.unit_id))) ? "✅" : "✖️" //returns all falsey
 
-    // const currentOpenReqs = units.find((unit) => unit.id === openReqs.find((req) => req.unit_id).unit_id) ? "✅" : "✖️";//returns all CHECK
+    // const currentOpenReqs = units.find((unit) => unit.id === openReqs.find((req) => req.unit_id).unit_id) ? "✅" : "✖️";//returns all truthy
 
     // let currentOpenReqs = "✖️";
     // for (let i = 0; i < openReqs.length; i++) {
@@ -37,8 +37,47 @@ function UnitOverview ({units, owners, openReqs}) {
     //   }
     // }   returning all true values
 
-    const currentOpenReqs = "xxx"
+    // const currentOpenReqs = "xxx"
     
+    // const currentOpenReqs = units.forEach(unit => console.log(unit.id))
+    // const test = openReqs.forEach(req => console.log(req.unit_id))
+
+    // units.forEach(unit => {
+    //     const unitId = unit.id;
+    //     openReqs.forEach(req => {
+    //       const reqUnitId = req.unit_id;
+    //       if (unitId === reqUnitId) {
+    //         console.log("Unit ID:", unitId, "matches Request Unit ID:", reqUnitId);
+    //       }
+    //     });
+    //   });
+
+    // const currentOpenReqs = units.forEach(unit => {
+    //     const unitId = unit.id;
+    //     openReqs.forEach(req => {
+    //         const reqUnitId = req.unit_id;
+    //         if (unitId === reqUnitId) {
+    //         console.log("true")
+    //         }
+    //         else {
+    //             console.log("false")
+    //         }
+    //     });
+    //     });
+
+
+    // const currentOpenReqs = units.some((unit) => {
+    //     return openReqs.some((req) => unit.id === req.unit_id);
+    //   }) ? "✅" : "✖️"; // returns all truthy
+
+
+    // const currentOpenReqs = units.find((unit) => {
+    //     return openReqs.find((req) => unit.id === req.unit_id);
+    //   }) ? "✅" : "✖️"; // returns all truthy
+
+    const currentOpenReqs = units.some((unit) => {
+        return openReqs.some((req) => unit.id === req.unit_id);
+      }) ? "✅" : "✖️";
 
 
 //when maintreqs date_closed === nil, take that same unit_id to Unit.id 
