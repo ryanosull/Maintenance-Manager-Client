@@ -26,7 +26,7 @@ function OpenRequests ({openReqs, setOpenReqs}) {
 
     //likely do not need anything above this line
 
-    
+    //jav, how do i access single reqs from the openREqs array? 
 
     const [formData, setFormData] = useState ({
         date_closed: openReqs.map((req) => req.date_closed)
