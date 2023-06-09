@@ -50,7 +50,7 @@ function App() {
               <NewRequestForm units={units} owners={owners} />
             </Route>
             <Route path="/openrequests">
-              <OpenRequests openReqs={openReqs} />
+              <OpenRequests openReqs={openReqs} setOpenReqs={setOpenReqs} />
             </Route>
         </Switch>
     </div> 

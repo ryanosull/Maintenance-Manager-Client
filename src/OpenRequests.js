@@ -4,9 +4,10 @@ import "./UnitOverview.css";
 
 const unitsWithOpenReqsUrl = "http://localhost:9292/unitswithopenrequests"; //likely uncessary once open_req? column removed
 
+const maintReqPatchUrl = "http://localhost:9292/maintenancerequests/:id"; //declare endpoint variable
 
 
-function OpenRequests ({openReqs}) {
+function OpenRequests ({openReqs, setOpenReqs}) {
 
     const [unitReqs, setUnitReqs] = useState([]); // likely delete
 
@@ -18,9 +19,50 @@ function OpenRequests ({openReqs}) {
     }, []);
 
 
+    // const test = openReqs.map((req) => {} )
 
-    // console.log(unitReqs)
+    console.log(unitReqs, "removing error")
     // // console.log(openReqs)
+
+    //likely do not need anything above this line
+
+
+    const [formData, setFormData] = useState ({
+        date_closed: openReqs.map((req) => req.date_closed)
+    });
+
+    const handleInputChange = (e) => {
+
+        const {name, value} = e.target; //destructure name (attribute of input element) and value (current value of input element)
+
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
+
+    function handleSubmit(e) {
+
+        e.preventDefault()
+
+        const patchReq = { //PATCH as object
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify(formData),
+        };
+
+        fetch(maintReqPatchUrl, patchReq)
+        .then(resp => resp.json())
+        .then(patchedRequest => {
+
+            const updatedRequests = openReqs.map(req => (req.id === patchedRequest.id ? patchedRequest : req));
+
+            setOpenReqs(updatedRequests);
+
+        });
+
+    };
+
 
     return (
         <div>
@@ -47,7 +89,10 @@ function OpenRequests ({openReqs}) {
                                 <td>{req.date_opened}</td>
                                 
                                 <td>
-                                    {req.date_closed} PATCH✍️ <button>submit</button>
+                                    <form onSubmit={handleSubmit}>
+                                        <input onChange={handleInputChange} type="date" name="date_closed" value={req.date_closed}/>
+                                        <button type="submit">submit</button>
+                                    </form>
                                 </td>
 
                                 <td>{req.unit_id}</td>
