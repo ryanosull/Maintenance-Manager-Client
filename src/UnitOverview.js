@@ -65,6 +65,36 @@ function UnitOverview ({units, owners, openReqs}) {
     //     });
     //     });
 
+    // const currentOpenReqs = units.map((unit) => {
+    //     const unitIDD = unit.id;
+
+    //     openReqs.map((req) => {
+    //         const reqUnitID = req.unit_id;
+            
+    //         if (unitIDD === reqUnitID) {
+    //             return "✅"
+    //         }
+    //         else  {
+    //             return "✖️"
+    //         }
+
+    //     })
+    // }) .map errors
+
+    const currentOpenReqs = units.map((unit) => {
+        const unitIDD = unit.id;
+      
+        return openReqs.map((req) => {
+          const reqUnitID = req.unit_id;
+      
+          if (unitIDD === reqUnitID) {
+            return "✅";
+          } else {
+            return "✖️";
+          }
+        });
+      }); //lmao
+      
 
     // const currentOpenReqs = units.some((unit) => {
     //     return openReqs.some((req) => unit.id === req.unit_id);
@@ -75,15 +105,14 @@ function UnitOverview ({units, owners, openReqs}) {
     //     return openReqs.find((req) => unit.id === req.unit_id);
     //   }) ? "✅" : "✖️"; // returns all truthy
 
-    const currentOpenReqs = units.some((unit) => {
-        return openReqs.some((req) => unit.id === req.unit_id);
-      }) ? "✅" : "✖️";
+    // const currentOpenReqs = units.some((unit) => {
+    //     return openReqs.some((req) => unit.id === req.unit_id);
+    // }) ? "✅" : "✖️";
 
 
 //when maintreqs date_closed === nil, take that same unit_id to Unit.id 
 //for all units, if unit.id === maintreq.unit_id, then display ✅, otherwise display ✖️
 
-//good question for JAV here = this kind of logic better handled on the backend or ok to (((try))) and handle here?
 
     return (
         <div id="tableContainer">
