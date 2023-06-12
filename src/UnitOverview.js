@@ -163,3 +163,6 @@ export default UnitOverview;
 
 
 //refactor and take logic out of jsx. save all that shit to a variable and then {placeIt}.
+
+
+//i know what the issue is here: we are comparing id to unit.id but not also taking into consideration date_closed: nil - dumbass
