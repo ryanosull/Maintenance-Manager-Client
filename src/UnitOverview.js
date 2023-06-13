@@ -8,6 +8,9 @@ function UnitOverview ({units, owners, openReqs}) {
     console.log(units)
     console.log(openReqs)
 
+
+
+
     // const currentOpenReqs = {
     //     value: (units.find((unit) => unit.id === openReqs.unit_id)?. "this" || "that")
     // }
@@ -20,7 +23,16 @@ function UnitOverview ({units, owners, openReqs}) {
 
     // const currentOpenReqs = units.find((unit) => unit.id === (openReqs.find((req) => req.unit_id))) ? "✅" : "✖️" //returns all falsey
 
-    // const currentOpenReqs = units.find((unit) => unit.id === openReqs.find((req) => req.unit_id).unit_id) ? "✅" : "✖️";//returns all truthy
+    // const currentOpenReqs = units.find((unit) => unit.id === openReqs.find((req) => req.unit_id && req.date_closed === null ).unit_id) ? "✅" : "✖️";//returns all truthy
+
+    // const currentOpenReqs = units.find((unit) => {
+    //     const matchingReq = openReqs.find((req) => req.unit_id === unit.id && req.date_closed === null);
+    //     return matchingReq !== undefined;
+    //   }) ? "✅" : "✖️";
+      
+
+    // const currentOpenReqs = units.find((unit) => unit.id === openReqs.find((req) => req.unit_id && req.date_closed === null).unit_id) ? console.log("truthty") : console.log("falsey");
+
 
     // let currentOpenReqs = "✖️";
     // for (let i = 0; i < openReqs.length; i++) {
@@ -81,24 +93,24 @@ function UnitOverview ({units, owners, openReqs}) {
     //     })
     // }) .map errors
 
-    const currentOpenReqs = units.map((unit) => {
-        const unitIDD = unit.id;
+    // const currentOpenReqs = units.map((unit) => {
+    //     const unitIDD = unit.id;
       
-        return openReqs.map((req) => {
-          const reqUnitID = req.unit_id;
+    //     return openReqs.map((req) => {
+    //       const reqUnitID = req.unit_id;
       
-          if (unitIDD === reqUnitID) {
-            return "✅";
-          } else {
-            return "✖️";
-          }
-        });
-      }); //lmao
+    //       if (unitIDD === reqUnitID) {
+    //         return "✅";
+    //       } else {
+    //         return "✖️";
+    //       }
+    //     });
+    //   }); //lmao
       
 
-    // const currentOpenReqs = units.some((unit) => {
-    //     return openReqs.some((req) => unit.id === req.unit_id);
-    //   }) ? "✅" : "✖️"; // returns all truthy
+    const currentOpenReqs = units.some((unit) => {
+        return openReqs.some((req) => unit.id === req.unit_id);
+      }) ? "✅" : "✖️"; // returns all truthy
 
 
     // const currentOpenReqs = units.find((unit) => {
@@ -108,6 +120,13 @@ function UnitOverview ({units, owners, openReqs}) {
     // const currentOpenReqs = units.some((unit) => {
     //     return openReqs.some((req) => unit.id === req.unit_id);
     // }) ? "✅" : "✖️";
+
+
+    // const currentOpenReqs = units.find((unit) => {
+    //     const reqWithUnitID = openReqs.find((req) => req.unit_id && req.date_closed != null);
+    //     return reqWithUnitID && unit.id === reqWithUnitID.unit_id;
+    //   }) ? "✅" : "✖️";
+      
 
 
 //when maintreqs date_closed === nil, take that same unit_id to Unit.id 
@@ -163,3 +182,6 @@ export default UnitOverview;
 
 
 //refactor and take logic out of jsx. save all that shit to a variable and then {placeIt}.
+
+
+//i know what the issue is here: we are comparing id to unit.id but not also taking into consideration date_closed: nil - dumbass
