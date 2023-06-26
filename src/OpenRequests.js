@@ -95,7 +95,7 @@ function OpenRequests ({openReqs, setOpenReqs}) {
                                 
                                 <td>
                                     <form onSubmit={handleSubmit}>
-                                        <input onChange={handleInputChange} type="date" name="date_closed" value={req.date_closed || ""}/>
+                                        <input onChange={handleInputChange} type="date" name="date_closed" value={req.date_closed}/>
                                         <button type="submit">submit</button>
                                     </form>
                                 </td>

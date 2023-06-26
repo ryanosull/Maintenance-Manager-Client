@@ -11,6 +11,7 @@ import OpenRequests from "./OpenRequests";
 const unitsUrl = "http://localhost:9292/units";
 const ownersUrl = "http://localhost:9292/owners";
 const openMaintReqsUrl = "http://localhost:9292/openmaintreqs";
+const allMaintReqsURL = "http://localhost:9292/maintenancerequests"
 
 function App() {
   
@@ -18,6 +19,7 @@ function App() {
   const [units, setUnits] = useState([]);
   const [owners, setOwners] = useState([]);
   const [openReqs, setOpenReqs] = useState([]);
+  const [allMaintReqs, setAllMaintReqs] = useState([])
 
   useEffect(() => { //fetch units
     fetch(unitsUrl)
@@ -37,6 +39,12 @@ function App() {
     .then(maintData => setOpenReqs(maintData))
 }, []);
 
+  useEffect(() => {
+    fetch(allMaintReqsURL)
+    .then(resp => resp.json())
+    .then(allReqData => setAllMaintReqs(allReqData))
+  }, [])
+
 
   return (
     <div >
@@ -44,7 +52,7 @@ function App() {
       <Sidebar />
         <Switch>
             <Route path="/unitsoverview">
-              <UnitOverview units={units} owners={owners} openReqs={openReqs} />
+              <UnitOverview units={units} owners={owners} openReqs={openReqs} allMaintReqs={allMaintReqs} />
             </Route>
             <Route path="/newmaintenancerequest">
               <NewRequestForm units={units} owners={owners} />
