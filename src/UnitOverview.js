@@ -3,13 +3,21 @@ import "./UnitOverview.css";
 
 
 
-function UnitOverview ({units, owners, openReqs}) {
+function UnitOverview ({units, owners, openReqs, allMaintReqs}) {
 
     console.log(units)
     console.log(openReqs)
+    console.log(allMaintReqs)
+
+    const currentOpenReqs = "placeholder"
 
 
+    // const currentOpenReqs = units.map((unit) => unit.id === (allMaintReqs.map(req) => req.unit_id === unit.id && req.date_closed === null))
 
+    // const currentOpenReqs = units.map((unit) => {
+    //     return unit.id === allMaintReqs.some((req) => req.unit_id === unit.id && req.date_closed === null) ? "✅" : "✖️"
+    //   });
+      
 
     // const currentOpenReqs = {
     //     value: (units.find((unit) => unit.id === openReqs.unit_id)?. "this" || "that")
@@ -19,11 +27,20 @@ function UnitOverview ({units, owners, openReqs}) {
     //     units.find((unit) => unit.id === openReqs.unit_id ? ✅ : ➕
     // }
 
-    // const currentOpenReqs = units.find((unit) => unit.id === openReqs.unit_id) ? "✅" : "✖️";  // returns all falsey
+    // const currentOpenReqs = units.find((unit) => unit.id === allMaintReqs.unit_id) ? "✅" : "✖️";
+    //   // returns all falsey
 
     // const currentOpenReqs = units.find((unit) => unit.id === (openReqs.find((req) => req.unit_id))) ? "✅" : "✖️" //returns all falsey
 
-    // const currentOpenReqs = units.find((unit) => unit.id === openReqs.find((req) => req.unit_id && req.date_closed === null ).unit_id) ? "✅" : "✖️";//returns all truthy
+
+
+
+    // const currentOpenReqs = units.find((unit) => unit.id === allMaintReqs.find((req) => req.unit_id && req.date_closed === null ).unit_id) ? "✅" : "✖️";
+    // //returns all truthy
+
+
+
+
 
     // const currentOpenReqs = units.find((unit) => {
     //     const matchingReq = openReqs.find((req) => req.unit_id === unit.id && req.date_closed === null);
@@ -108,14 +125,17 @@ function UnitOverview ({units, owners, openReqs}) {
     //   }); //lmao
       
 
-    const currentOpenReqs = units.some((unit) => {
-        return openReqs.some((req) => unit.id === req.unit_id);
-      }) ? "✅" : "✖️"; // returns all truthy
+    // this is a test
+
+    // const currentOpenReqs = units.some((unit) => {
+    //     return openReqs.some((req) => unit.id === req.unit_id);
+    //   }) ? "✅" : "✖️"; // returns all truthy
 
 
     // const currentOpenReqs = units.find((unit) => {
     //     return openReqs.find((req) => unit.id === req.unit_id);
-    //   }) ? "✅" : "✖️"; // returns all truthy
+    //   }) ? "✅" : "✖️"; 
+    // returns all truthy
 
     // const currentOpenReqs = units.some((unit) => {
     //     return openReqs.some((req) => unit.id === req.unit_id);
@@ -185,3 +205,7 @@ export default UnitOverview;
 
 
 //i know what the issue is here: we are comparing id to unit.id but not also taking into consideration date_closed: nil - dumbass
+
+
+
+// for each unit, if the unit.id === allreqs.unit_id, and allreqs.date_closed === null, then display ✅, otherwise display ✖️
