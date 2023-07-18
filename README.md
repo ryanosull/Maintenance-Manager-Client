@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# Maintenance Manager
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to **Maintenance Manager**. This relatively simple app served as a project submission during my time at Flatiron School. This project serves as a proof-of-concept for a larger SaaS property management application that I have been working on. Development progress of Maintenance Manager is infrequent at this time.
 
-## Available Scripts
+&nbsp;
 
-In the project directory, you can run:
 
-### `npm start`
+## Technologies Used 
+### **Client-side:**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**React:** The foundation of our app, providing a lightning-fast and dynamic user interface. This project was bootstrapped using [Create React App](https://github.com/facebook/create-react-app), allowing for a streamlined development setup. CSS is vanilla, but may be Bootstrapped in the future.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### **Server-side:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Ruby:** An object-oriented backend language, enabling robust functionality and scalability.
 
-### `npm run build`
+**Ruby on Rails:**  A framework that allows developers to build powerful, scalable, and maintainable web applications using the Ruby programming language.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Active Record:** An exceptional ORM tool that simplifies database management and enhances data handling.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**PostgreSQL:** Reliable and efficient object-relational database for seamless data storage and retrieval.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**BCrypt:** Employed for top-notch password protection and authentication, ensuring the security of user information.
 
-### `npm run eject`
+**JWT:** JWT (JSON Web Token) is a compact and self-contained way of representing information between two parties as a JSON object, often used for authentication and securely transmitting data.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+&nbsp;
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[MIT](https://choosealicense.com/licenses/mit/)
