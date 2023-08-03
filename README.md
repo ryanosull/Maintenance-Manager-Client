@@ -15,15 +15,10 @@ Welcome to **Maintenance Manager**. This relatively simple app served as a proje
 
 **Ruby:** An object-oriented backend language, enabling robust functionality and scalability.
 
-**Ruby on Rails:**  A framework that allows developers to build powerful, scalable, and maintainable web applications using the Ruby programming language.
+**Sinatra:** Sinatra is a lightweight and flexible web application framework for Ruby, allowing rapid development of web applications with minimal boilerplate code.
 
-**Active Record:** An exceptional ORM tool that simplifies database management and enhances data handling.
+**SQLite:** SQLite is a self-contained, serverless, and zero-configuration relational database management system, ideal for embedded devices and small-scale applications.
 
-**PostgreSQL:** Reliable and efficient object-relational database for seamless data storage and retrieval.
-
-**BCrypt:** Employed for top-notch password protection and authentication, ensuring the security of user information.
-
-**JWT:** JWT (JSON Web Token) is a compact and self-contained way of representing information between two parties as a JSON object, often used for authentication and securely transmitting data.
 
 &nbsp;
 
